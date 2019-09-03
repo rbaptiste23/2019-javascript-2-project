@@ -34,10 +34,17 @@ function createEnvelope(to) {
 	console.log("========================================")
 }
 
+
+
 function createEnvelopes(promptResponses, userData) {
-	userData.forEach(data => {
-		createEnvelope(data)
+	
+	const filteredData = userData.filter(e => e.sex === promptResponses.sex && e.age <= promptResponses.ageMax)
+ 	
+	filteredData.forEach(data => {			
+	  createEnvelope(data)
 	})
+
+ 
 }
 
 module.exports = {

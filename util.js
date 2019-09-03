@@ -1,6 +1,7 @@
-const _ = require('lodash')
 
+const _ = require('lodash')
 const width = 38
+
 function dynamicLine(leftWidth, content) {
 	const leftPad = _.pad("", leftWidth)
 	const rightWidth = width - leftWidth - content.length
