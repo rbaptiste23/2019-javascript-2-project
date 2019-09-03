@@ -23,14 +23,16 @@ function createEnvelope(to) {
 	// |					City, State, Zip  |
 	// ========================================
 
+	const charOfChoice = '|***|'
+
 	console.log("========================================")
-	console.log(dynamicLine(2, from.name))
-	console.log(dynamicLine(2, from.street))
-	console.log(dynamicLine(2, `${from.city}, ${from.state}, ${from.zip}`))
-	console.log(dynamicLine(2, ""))
-	console.log(dynamicLine(11, to.name))
-	console.log(dynamicLine(11, to.address.street))
-	console.log(dynamicLine(11, `${to.address.city}, ${to.address.state}, ${to.address.zip}`))
+	console.log(dynamicLine(2, from.name, charOfChoice , true))
+	console.log(dynamicLine(2, from.street, charOfChoice, true))
+	console.log(dynamicLine(2, `${from.city}, ${from.state}, ${from.zip}`, charOfChoice, true))
+	console.log(dynamicLine(2, "", charOfChoice, true))
+	console.log(dynamicLine(11, to.name, charOfChoice, true))
+	console.log(dynamicLine(11, to.address.street, charOfChoice, true))
+	console.log(dynamicLine(11, `${to.address.city}, ${to.address.state}, ${to.address.zip}`, charOfChoice,true))
 	console.log("========================================")
 }
 

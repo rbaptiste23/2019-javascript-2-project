@@ -1,6 +1,7 @@
 const prompts = require('prompts')
 const request = require('request-promise-native')
 const envelope = require('./envelope')
+const letter = require('./letter')
 
 const programToRun = process.argv[2]
 
@@ -11,7 +12,14 @@ if (programToRun === 'envelope') {
 		})
 	})
 } else if (programToRun === 'letter') {
-	console.log('letter program has not been implmented yet')
+	envelopePrompts().then((responses) => {
+		request('http://localhost:3000').then(data => {
+			letter.createLetters(responses, JSON.parse(data))
+		})
+	})
+
+
+  
 } else {
 	console.log('That is not a program yet!')
 }
@@ -29,7 +37,7 @@ function envelopePrompts() {
 		  message: 'What sexes?'
 		}
 
-		
+
 	  ];
 
 	  return prompts(questions)
